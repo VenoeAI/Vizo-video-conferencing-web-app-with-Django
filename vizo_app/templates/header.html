@@ -1,0 +1,19 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+{% if user.is_authenticated %}
+<div class="header">
+    <div class="name"><a href="{% url "dashboard" %}"><h2>Vizo</h2></a></div>
+    <div class="words"><small>Video conferencing app built by Ebuka Nwabuoku</small></div>
+    <div class="linksis"><a href="{% url "logout" %}">Logout</a></div>
+</div>
+                {% else %}
+                <div class="header">
+                    <div class="name"><a href="{% url "dashboard" %}"><h2>Vizo</h2></a></div>
+                    <div class="words"><small>Video conferencing app built by Ebuka Nwabuoku</small></div>
+
+                </div>
+                {% endif %}
+
+{% block content %}{% endblock content %}
